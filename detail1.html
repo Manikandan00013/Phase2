@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Table Finder</title> 
+        <link rel="stylesheet" href="aa.css">
+    </head>
+    <body>
+        
+        <center>
+            <h1>Identifier</h1>
+            <h2>Worker Detail</h2>
+            <table border="2" id="resultsTable">
+                <thead>
+                    <tr>
+                        <th><input type="text" placeholder="Lable"></th>
+                        <th><input type="text" placeholder="To"></th>
+                        <th><input type="text" placeholder="Message"></th>
+                        <th><input type="text" placeholder="Date"></th>
+                        <th><input type="text" placeholder="Unique Id"></th>
+                    </tr>
+                    <tr>
+                        <th>Lable</th>
+                        <th>To</th>
+                        <th>Message</th>
+                        <th>Date</th>
+                        <th>Unique Id</th>
+                    </tr>
+                    
+                </thead>
+                <tbody>
+                    <tr>
+                        <td> vignesh@ads.com</td>
+                        <td>['sathish@ads.com']</td>
+                        <td>Leave Request</td>
+                        <td>5864633456787888</td>
+                        <td>1</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>jeeva@ads.com</td>
+                        <td>['sathish@adstest.com']</td>
+                        <td>Leave Request</td>
+                        <td>5864633456787888</td>
+                        <td>2</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>Ragul@ads.com</td>
+                        <td>['sathish@adstest.com']</td>
+                        <td>Leave Request</td>
+                        <td>5864633456787888</td>
+                        <td>3</td>
+                    </tr>
+                  
+                    <tr>
+                        <td>chinna@ads.com</td>
+                        <td>['sathish@adstest.com']</td>
+                        <td>Leave Request</td>
+                        <td>5864633456787888</td>
+                        <td>4</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>surya@ads.com</td>
+                        <td>['sathish@adstest.com']</td>
+                        <td>Leave Request</td>
+                        <td>5864633456787888</td>
+                        <td>5</td>
+                    </tr>
+                </tbody>
+       
+        </center>
+        <script>
+            document.querySelectorAll('input[type="text"]').forEach(input => {
+               input.addEventListener('keyup', function() {
+                   const columnIdx = Array.from(this.parentElement.parentElement.children).indexOf(this.parentElement);
+                   const filter = this.value.toUpperCase();
+                   const table = this.closest('table');
+                   const rows = table.querySelectorAll('tbody tr');
+   
+                   rows.forEach(row => {
+                       const cell = row.children[columnIdx];
+                       if (cell.textContent.toUpperCase().indexOf(filter) > -1) {
+                           row.style.display = "";
+                       } else {
+                           row.style.display = "none";
+                       }
+                   }
+                   );
+               }
+               );
+           }
+           );
+   
+   </script>
+        
+    </body>
+    
+</html>
